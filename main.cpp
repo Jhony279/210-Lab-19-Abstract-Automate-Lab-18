@@ -29,8 +29,18 @@ class Movie{
         listHead = newNode;
     }
     void addReview(Node* newNode){
-        newNode->next = listHead;
-        listHead = newNode;
+            if (listHead == nullptr) {
+            listHead = newNode; // If the movie has no reviews, just point to the new list
+        } else {
+            Node* current = newNode;
+            // Find the end of the new list
+            while(current->next != nullptr){
+                current = current->next;
+            }
+            // Connect the old reviews to the end of the new list
+            current->next = listHead;
+            listHead = newNode;
+        }
     }
     void displayReviews(){
         Node* current = listHead;
