@@ -42,7 +42,18 @@ class Movie{
  * @return 
 */
 int main() {
+    bool exit = false;
     vector<Movie> movieLists;
+
+    while (!exit){
+        Movie m;
+        int rating;
+        string title, comment;
+
+        cout << "Enter movie title: ";
+        getline(cin, title);
+        Movie m(title);
+    }
 
     return 0;
 }
