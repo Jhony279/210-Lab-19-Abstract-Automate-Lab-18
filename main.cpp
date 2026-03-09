@@ -11,8 +11,12 @@ struct Node{
 };
 
 class Movie{
-    string title;
-    Node *listHead;
+    private:
+        string title;
+        Node *listHead;
+    public:
+    // Default constructor
+        Movie(){title = ""; listHead = nullptr;}
 };
 
 /**
@@ -20,7 +24,7 @@ class Movie{
  * @return 
 */
 int main() {
-
+    vector<Movie> movieLists;
 
     return 0;
 }
