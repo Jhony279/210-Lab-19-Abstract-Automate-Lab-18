@@ -28,6 +28,10 @@ class Movie{
         newNode->next = listHead;
         listHead = newNode;
     }
+    void addReview(Node* newNode){
+        newNode->next = listHead;
+        listHead = newNode;
+    }
     void displayReviews(){
         Node* current = listHead;
         while(current != nullptr){
@@ -37,7 +41,7 @@ class Movie{
     }
 };
 
-Node *createLinkedList();
+Node *reviewList();
 
 /**
  * @brief - Description of main
@@ -49,20 +53,43 @@ int main() {
 
     while (!exit){
         Movie m;
-        int rating;
-        string title, comment;
+        string title;
 
         cout << "Enter movie title: ";
         getline(cin, title);
         m.setTitle(title);
+        m
+        
+    }
+
+    return 0;
+}
+
+Node *reviewList(){
+    int rating;
+    string comment;
+    Node *head = nullptr;
+    bool exit = false;
+
+    while (!exit){
         cout << "Enter rating (1-5): ";
         cin >> rating;
         cin.ignore();
         cout << "Enter review comment: ";
         getline(cin, comment);
-        m.addReview(rating, comment);
-        movieLists.push_back(m);
-    }
 
-    return 0;
+        Node* newNode = new Node;
+        newNode->rating = rating;
+        newNode->reviewComment = comment;
+
+        newNode->next = head;
+        head = newNode;
+
+        cout << "Do you want to add another review? (y/n): ";
+        char choice; cin >> choice;
+        if (choice != 'y' && choice != 'Y') {
+            exit = true;
+        }
+    }
+    return head;
 }
