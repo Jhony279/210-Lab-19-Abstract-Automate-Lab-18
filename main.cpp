@@ -37,6 +37,8 @@ class Movie{
     }
 };
 
+Node *createLinkedList();
+
 /**
  * @brief - Description of main
  * @return 
@@ -52,7 +54,14 @@ int main() {
 
         cout << "Enter movie title: ";
         getline(cin, title);
-        Movie m(title);
+        m.setTitle(title);
+        cout << "Enter rating (1-5): ";
+        cin >> rating;
+        cin.ignore();
+        cout << "Enter review comment: ";
+        getline(cin, comment);
+        m.addReview(rating, comment);
+        movieLists.push_back(m);
     }
 
     return 0;
