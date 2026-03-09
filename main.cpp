@@ -55,53 +55,55 @@ int main() {
         Movie m;
         string title;
 
-        // cout << "Enter movie title: ";
-        // getline(cin, title);
-        // m.setTitle(title);
-        // m.addReview(reviewList());
-        // movieLists.push_back(m);
+        cout << "Enter movie title: ";
+        getline(cin, title);
+        m.setTitle(title);
+        m.addReview(reviewList());
+        movieLists.push_back(m);
 
-        // cout << "Do you want to add another movie? (y/n): ";
-        // char choice; cin >> choice;
-        // if (choice != 'y' && choice != 'Y') {
-        //     exit = true;
-        // }
-        
+        cout << "Do you want to add another movie? (y/n): ";
+        string choice; cin >> choice;
+        cin.ignore();
+
+        if (choice != "y" && choice != "Y"){
+            exit = true;
+        }
     }
 
-    // for (int i = 0; i < movieLists.size(); i++){
-    //     cout << "Movie: " << movieLists[i].getTitle() << endl;
-    //     movieLists[i].displayReviews();
-    // }
+    for (int i = 0; i < movieLists.size(); i++){
+        cout << "Movie: " << movieLists[i].getTitle() << endl;
+        movieLists[i].displayReviews();
+    }
 
     return 0;
 }
 
-// Node *reviewList(){
-//     int rating;
-//     string comment;
-//     Node *head = nullptr;
-//     bool exit = false;
+Node *reviewList(){
+    int rating;
+    string comment;
+    Node *head = nullptr;
+    bool exit = false;
 
-//     while (!exit){
-//         cout << "Enter rating (1-5): ";
-//         cin >> rating;
-//         cin.ignore();
-//         cout << "Enter review comment: ";
-//         getline(cin, comment);
+    while (!exit){
+        cout << "Enter rating (1-5): ";
+        cin >> rating;
+        cin.ignore();
+        cout << "Enter review comment: ";
+        getline(cin, comment);
 
-//         Node* newNode = new Node;
-//         newNode->rating = rating;
-//         newNode->reviewComment = comment;
+        Node* newNode = new Node;
+        newNode->rating = rating;
+        newNode->reviewComment = comment;
 
-//         newNode->next = head;
-//         head = newNode;
+        newNode->next = head;
+        head = newNode;
 
-//         cout << "Do you want to add another review? (y/n): ";
-//         char choice; cin >> choice;
-//         if (choice != 'y' && choice != 'Y') {
-//             exit = true;
-//         }
-//     }
-//     return head;
-// }
+        cout << "Do you want to add another review? (y/n): ";
+        string choice; cin >> choice;
+        cin.ignore();
+        if (choice != "y" && choice != "Y"){
+            exit = true;
+        }
+    }
+    return head;
+}
