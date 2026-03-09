@@ -96,7 +96,11 @@ Node *reviewList(){
 
     while (!exit){
         cout << "Enter rating (1-5): ";
-        cin >> rating;
+        while (!(cin >> rating)) { // If input is not an integer
+            cin.clear(); // Clear the fail state
+            cin.ignore(10000, '\n'); // Throw away the garbage input
+            cout << "Invalid input. Please enter a number (1-5): ";
+        }
         cin.ignore();
         cout << "Enter review comment: ";
         getline(cin, comment);
