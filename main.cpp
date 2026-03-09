@@ -17,6 +17,24 @@ class Movie{
     public:
     // Default constructor
         Movie(){title = ""; listHead = nullptr;}
+
+    void setTitle(string t){title = t;}
+    string getTitle(){return title;}
+
+    void addReview(int r, string c){
+        Node* newNode = new Node;
+        newNode->rating = r;
+        newNode->reviewComment = c;
+        newNode->next = listHead;
+        listHead = newNode;
+    }
+    void displayReviews(){
+        Node* current = listHead;
+        while(current != nullptr){
+            cout << "Rating: " << current->rating << ", Comment: " << current->reviewComment << endl;
+            current = current->next;
+        }
+    }
 };
 
 /**
